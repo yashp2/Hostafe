@@ -15,10 +15,8 @@ def Team(request):
 
 
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def Result(request):
-        
-    
     if request.method== 'POST':
         g=request.POST.get('g',False)
         re=request.POST.get('re',False)

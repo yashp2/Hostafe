@@ -3,6 +3,9 @@
 {% block content %}
 <div style="display: block; margin-top: 90px;">
 </div>
+
+
+{% if user.is_authenticated %}
 <form action="{% url 'result' %}" method="post" id="d">
   {% csrf_token %}
   <div class="flbxcomp">
@@ -228,4 +231,7 @@
     <button class="gobackbutton"><a href="{% url 'home' %}" > Go Back  </a></button>
    </div>
 </form>
+{% else %}
+<h1 class="text-center"> Please Login First to View the Results </h1>
+{% endif  %}
 {% endblock content %}

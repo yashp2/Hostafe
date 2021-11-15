@@ -18,7 +18,7 @@ def login(request):
             messages.info(request, 'You have been logged In !')
             return redirect('home')
         else:
-            return render(request, 'MainApp/home.html', {'error': "Invaild Credentials"})
+            return render(request, 'MainApp/home.html', {'error': "Invaild Credentials Login Again "})
     else:
         return render(request, 'MainApp/home.html')
 
