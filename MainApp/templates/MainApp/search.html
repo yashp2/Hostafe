@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% if error %}
+    {{ error }}
+    {% endif %}
+    <h1><b>Search User</b></h1>
+    <form action="{% url 'search' %}" method="post">
+        {% csrf_token %}
+        <input type="text" name="searched" placeholder="Enter Username or Email">
+        <input type="submit" value="Search"><br><br>
+
+    </form>
+
+    {% for res in res %}
+    <h2>{{res.college_name}}</h2>
+    <h2>{{res.address}}</h2>
+    <h2>{{res.radius}}</h2>
+    <h2>{{res.map_link}}</h2>
+    <h2>{{res.contact_number}}</h2>
+    
+    {% if res.hostel_img_1 %}
+        <img class="avatar avatar--md" src="{{res.hostel_img_1.url}}" alt="image not available" />
+    {% end if %}
+    {% if res.hostel_img_2 %}
+        <img class="avatar avatar--md" src="{{res.hostel_img_2.url}}" alt="image not available" />
+    {% end if %}
+    {% if res.hostel_img_3 %}
+        <img class="avatar avatar--md" src="{{res.hostel_img_3.url}}" alt="image not available" />
+    {% end if %}
+
+
+    {% endfor  %}
+    
+
+</body>
+</html>
+
+<!-- # hostel name
+# college name
+# address
+# radius
+# gender
+# contact number
+# map link
+# mess -->

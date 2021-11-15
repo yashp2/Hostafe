@@ -1,0 +1,191 @@
+{% extends 'MainApp/base.html' %}
+{% load static %}
+{% block content %}
+
+<div style="display: block; margin-top: 120px;">
+</div>
+
+{% for message in messages %}
+<div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+{% endfor %}
+<div class="errors">
+  {% if error %}
+  
+    <div class="alert alert-danger alert-dismissible background-color " role="alert">
+      <strong>{{error}}</strong>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+      </button>
+  </div>
+ {%endif%}
+ </div>
+<div class="mainimg w-100">
+  <img src="{% static 'img/main2.jpeg' %}" alt="img" style="width: 100%; object-fit: contain;">
+</div>
+
+<form action="{% url 'result' %}"  method="POST" id="d">
+  {% csrf_token %}
+<div class="searchboxbar">
+  <div class="searchbarleft">
+    
+    <i class="fas fa-search" class="searchboxicon"></i>
+    <input type="search" name="searched" id="" placeholder="Enter Your College name here !" class="searchbar01">
+  </div>
+
+  <div class="searchbarright">
+    <div class="btn-group">
+      <button type="button" class="btn btn-primary dropdown-toggle searchbuttons" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        <i class="fas fa-filter" style="color: white;"></i>Filters
+      </button>
+      <div class="dropdown-menu">
+        <div class="filterdropdown">
+          <h3
+            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight:lighter; margin: 10px;">
+            Gender</h3>
+          <div class="filterdropdownelements">
+            <div>
+              <input type="radio" name="g" id="g1" value="Male" style="margin: 10px 8px 10px 10px;"><label
+                for="g1" style="margin: 10px 10px 10px 0px;">Male</label>
+            </div>
+            <div>
+              <input type="radio" name="g" id="g2" value="Female" style="margin: 10px 8px 10px 10px;"><label
+                for="g2" style="margin: 10px 10px 10px 0px;">Female</label>
+            </div>
+            <div>
+              <input type="radio" name="g" id="g3" value="Coed" style="margin: 10px 8px 10px 10px;"><label
+                for="g3" style="margin: 10px 10px 10px 0px;">Coed</label>
+            </div>
+          </div>
+          <hr>
+
+          <h3
+            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight:lighter; margin: 10px;">
+            Rent</h3>
+          <div class="filterdropdownelements">
+            <div>
+              <input type="radio" name="re" id="r1" value="1" style="margin: 10px 8px 10px 10px;"><label
+                for="r1" style="margin: 10px 10px 10px 0px;">Less than 50,000 Rs</label>
+            </div>
+            <div>
+              <input type="radio" name="re" id="r2" value="2" style="margin: 10px 8px 10px 10px;"><label
+                for="r2" style="margin: 10px 10px 10px 0px;">Between 50,000 Rs and 100,000 Rs</label>
+            </div>
+            <div>
+              <input type="radio" name="re" id="r3" value="3" style="margin: 10px 8px 10px 10px;"><label
+                for="r3" style="margin: 10px 10px 10px 0px;">More than 100,000 Rs</label>
+            </div>
+          </div>
+          <hr>
+
+          <h3
+            style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-weight:lighter; margin: 10px;">
+            Radius</h3>
+          <div class="filterdropdownelements">
+            <div>
+              <input type="radio" name="ra" id="rad1" value="4" style="margin: 10px 8px 10px 10px;"><label
+                for="rad1" style="margin: 10px 10px 10px 0px;">Less than 500m</label>
+            </div>
+            <div>
+              <input type="radio" name="ra" id="rad2" value="5" style="margin: 10px 8px 10px 10px;"><label
+                for="rad2" style="margin: 10px 10px 10px 0px;">Between 500m and 1000m</label>
+            </div>
+            <div>
+              <input type="radio" name="ra" id="rad3" value="6" style="margin: 10px 8px 10px 10px;"><label
+                for="rad3" style="margin: 10px 10px 10px 0px;">More than 1000m</label>
+            </div>
+          </div>
+          <hr>
+        </div>
+      </div>
+    </div>
+
+
+
+     <input class="btn btn-primary searchbuttons" style="width: 110px;"
+        type="submit" value="Submit">
+  </div>
+</div>
+</form>
+
+<div class="aboutus">
+  <div class="aboutusl">
+    <img src="{% static 'img/welcome_image.jpg' %}" alt="img"
+      style="width: 100%; object-fit: contain; box-shadow: 4px 4px 8px lightgray;">
+  </div>
+  <div class="aboutusr">
+    <h2 style="font-family: 'Zen Antique', serif; text-align: center; font-size:50px; text-shadow: 3px 3px 7px grey;">
+      Welcome to Hostafe!</h2>
+    <p>
+    <h4 style="font-family: 'Assistant', sans-serif; font-weight:bold;">
+      Your one stop destination to find your accommodation.<br>
+      We know it can be very difficult to leave your home and live in a new city & adjust to the new surroundings for
+      education.
+      Let us help you to choose your home away from home to make your college years one of the most memorable
+      experiences of your life.
+    </h4>
+    </p>
+  </div>
+</div>
+
+<div class="perksm">
+  <div class="perkse">
+    <h1><span class="dor">0</span></span>1.</h1>
+    <h3 style="font-family: 'Zen Antique', serif;">User Friendly Domain :
+    </h3>
+    <br>
+    <h6>
+      User has to just create a hostafe account and then can explore the world of hostels.
+    </h6>
+  </div>
+  <div class="perkse">
+    <h1><span class="dor">0</span>2.</h1>
+    <h3>Instant Comparisons :
+    </h3>
+    <br>
+    <h6>
+      It’s the unique feature which host-afe is going to provide user making them able to compare their selected
+      hostels for their specifications just like we compare our mobile phones while buying online.
+    </h6>
+  </div>
+  <div class="perkse">
+    <h1><span class="dor">0</span>3.</h1>
+    <h3>Filtering Feature :</h3>
+    <br>
+    <h6>
+      User can choose
+      <ul>
+        <li style="font-family: 'Libre Caslon Text', serif;">Selections based on Gender.</li>
+        <li style="font-family: 'Libre Caslon Text', serif;">Distance From College.</li>
+        <li style="font-family: 'Libre Caslon Text', serif;">Range of prices.</li>
+        <li style="font-family: 'Libre Caslon Text', serif;">No. of partners
+          Hostels including mess or without mess.
+        </li>
+        <li style="font-family: 'Libre Caslon Text', serif;">
+          Can choose hostels a/c to ratings.
+        </li>
+      </ul>
+    </h6>
+  </div>
+  <div class="perkse">
+    <h1><span class="dor">0</span>4.</h1>
+    <h3>Reviews & Ratings :
+    </h3>
+    <br>
+    <h6>
+      Our platform will provide the user to review and rate their hostel on each specifications , which will help
+      other users to choose their right hostel.
+    </h6>
+  </div>
+</div>
+<script>
+  function submit_filter(){
+    document.getElementById('d').submit();
+  }
+</script>
+{%  endblock content %}

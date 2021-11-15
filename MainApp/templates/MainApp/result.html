@@ -1,0 +1,231 @@
+{% extends 'MainApp/base.html' %}
+{% load static %}
+{% block content %}
+<div style="display: block; margin-top: 90px;">
+</div>
+<form action="{% url 'result' %}" method="post" id="d">
+  {% csrf_token %}
+  <div class="flbxcomp">
+    <div class="flbxl">
+      <div class="flbxlfil">
+        <h2 style="font-weight: bold;">Filters</h2>
+      </div>
+      <div class="flbxlfil1">
+        <h2
+          style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 26px;font-weight:lighter;">
+          Gender</h2>
+        <div class="flexfil1a">
+          
+          <div class="form-check">
+            <input type="radio" name="g" id="g1" value="Male">
+            <label class="form-check-label" for="g1">
+              Male
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="g" id="g2" value="Female">
+            <label class="form-check-label" for="g2">
+              Female
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="g" id="g3" value="Coed">
+            <label class="form-check-label" for="g3">
+              Co-ed
+            </label>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="flbxlfil2">
+        <h2
+          style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 26px;font-weight:lighter;">
+          Rent</h2>
+        <div class="flexfil1a">
+          <div class="form-check">
+            <input type="radio" name="re" value="1" id="r1">
+            <label class="form-check-label" for="r1">
+              Less than 50,000 Rs
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="re" value="2" id="r2">
+            <label class="form-check-label" for="r2">
+              Between 50,000 Rs and 100,000 Rs
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="re" value="3" id="r3">
+            <label class="form-check-label" for="r3">
+              More than 100,000 Rs
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="flbxlfil3">
+        <h2
+          style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; font-size: 26px;font-weight:lighter;">
+          Radius</h2>
+        <div class="flexfil1a">
+          <div class="form-check">
+            <input type="radio" name="ra" value="4" id="rad1">
+            <label class="form-check-label" for="rad1">
+              Less than 500m
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="ra" value="5" id="rad2">
+            <label class="form-check-label" for="rad2">
+              Between 500m and 1000m
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="radio" name="ra" value="6" id="rad3">
+            <label class="form-check-label" for="rad3">
+              More than 1000m
+            </label>
+          </div>
+        </div>
+        <div class="flexfil1b">
+            <input type="hidden" value="{{searched}}" name="current_college">
+                        <!-- <button type="submit" class="btn btn-primary">Apply Filters</button>  -->
+            <input class="btn btn-primary searchbuttons" style="width: 110px;"
+               type="submit" name="searched" value="Apply">
+
+          
+        </div>
+      </div>
+
+
+
+    </div>
+    <div class="flbxr">
+      <!-- <h1>You Searched For </h1> -->
+      {% for r in res %}
+      <div class="flbe" >
+        
+        <div class="flbeimgdiv">
+          <img
+            src="{{r.hostel_img_1.url}}"
+            alt="stanza" class="flbeimg">
+        </div>
+        <div class="flbecontent">
+          <div class="flbecontentn">
+            <h1 style="font-family: 'Roboto Slab', serif;">{{r.hostel_name}}</h1>
+            <h5>★ ★ ★ ★ ★ </h5>
+          </div>
+          <div class="flbecontentn" style="height: 30px;">
+
+          </div>
+          <div class="flbecontentn">
+            <h3 style="float: left; font-family: 'Roboto Slab', serif;font-size: 25px;">
+              {% if r.cost_of_living == 0 %}
+                Price Range : Unavailable
+              {% else %}
+                Price Range:  {{r.cost_of_living}} per year
+              {% endif %}
+                
+            </h3>
+            <!-- <input type="button" value="More Details" style="float: right;"> -->
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#hostelinfo{{r.pk}}"
+              style="float: right;">
+              More Details
+            </button>
+                <!-- Modal -->
+                <div class="modal fade " id="hostelinfo{{r.pk}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered modal-lg">
+                    <div class="modal-content hostinfomodalc">
+                      <div class="modal-header ">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body ">
+                        <div id="carouselIndicators{{r.pk}}" class="carousel slide" data-ride="carousel">
+                          <ol class="carousel-indicators">
+                            <li data-target="#carouselIndicators{{r.pk}}" data-slide-to="0" class="active carouselind"></li>
+                            <li data-target="#carouselIndicators{{r.pk}}" data-slide-to="1" class="carouselind"></li>
+                            <li data-target="#carouselIndicators{{r.pk}}" data-slide-to="2" class="carouselind"></li>
+                            <li data-target="#carouselIndicators{{r.pk}}" data-slide-to="2" class="carouselind"></li>
+                            <li data-target="#carouselIndicators{{r.pk}}" data-slide-to="2" class="carouselind"></li>
+                          </ol>
+                          <div class="carousel-inner">
+
+                            <div class="carousel-item active">
+                              <img class="d-block w-100 carouselimg"
+                                src="{{r.hostel_img_1.url}}"
+                                alt="Second slide">
+                            </div>
+                            <div class="carousel-item">
+                              <img class="d-block w-100 carouselimg"
+                                src="{{r.hostel_img_2.url}}"
+                                alt="Third slide">
+                            </div>
+                            <div class="carousel-item">
+                              <img class="d-block w-100 carouselimg"
+                                src="{{r.hostel_img_3.url}}"
+                                alt="Third slide">
+                            </div>
+
+                          </div>
+                          <a class="carousel-control-prev carouselinda" href="#carouselIndicators{{r.pk}}" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon carouselind" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                          </a>
+                          <a class="carousel-control-next carouselinda" href="#carouselIndicators{{r.pk}}" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon carouselind" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                          </a>
+                        </div>
+                        <div class="func">
+                          <h2>Hostel Name:</h2>
+                          <!-- <textarea name="" id="" cols="10" rows="5"></textarea> -->
+                            
+                          <div class="input">{{r.hostel_name}}</div>
+                          <h2>Address:</h2>
+                          <!-- <textarea name="" id="" cols="10" rows="5"></textarea> -->
+                          
+                          <div class="input">{{r.address}}</div>
+
+                  
+               
+                            <div>
+                            <h2 style="    font-family: 'Crimson Text', serif; font-size: 30px;">Location : </h2>
+                            
+                            <div class="">{{r.map_link}}</div>
+                            </a></div>
+                          <h2>Distance from college:</h2>
+                          <div class="input">
+                            {% if r.radius == 0 %}
+                            Unavailable
+                            {% else %}
+                              {{r.radius}} per metre
+                            {% endif %}
+                          </div>
+                          
+                        
+                          <h2>Contact:</h2>
+                          <div class="">{{r.contact_number}}</div>
+                        </div>
+
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+
+      {% endfor  %}
+    </div>   
+  </div>
+ 
+   <div class="text-capitalize text-center " >
+    <h6 class="text-capitalize text-center">
+      {% if error %}
+      {{error}}
+      {%endif%} </h6>
+    <button class="gobackbutton"><a href="{% url 'home' %}" > Go Back  </a></button>
+   </div>
+</form>
+{% endblock content %}
