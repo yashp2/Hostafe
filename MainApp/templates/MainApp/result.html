@@ -228,7 +228,10 @@
       {% if error %}
       {{error}}
       {%endif%} </h6>
-    <button class="gobackbutton"><a href="{% url 'home' %}" > Go Back  </a></button>
+    <!-- <button class="gobackbutton"><a href="{% url 'home' %}" > Go Back  </a></button> -->
+    <div class="navbar-links">
+      <ul>
+        <li><a href="{%  url 'home'  %}">Go Back</a></li>
    </div>
 </form>
 {% else %}
