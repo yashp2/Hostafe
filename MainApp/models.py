@@ -46,6 +46,8 @@ class HostelInfo(models.Model):
     hostel_img_2=models.ImageField(upload_to='images/',default=" " ,null=True,blank=True)
     hostel_img_3=models.ImageField(upload_to='images/',default=" " ,null=True,blank=True)
     def __str__(self):
-           return f'{self.hostel_name}'         
+        return f'{self.hostel_name}' 
+    def save(self,*args,**kwargs):
+        super().save(*args,**kwargs)     
 
 # RUN server
