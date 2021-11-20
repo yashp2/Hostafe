@@ -49,8 +49,8 @@ def register(request):
             elif not re.findall('[a-z]',request.POST['pass']):
                     return render(request,'MainApp/home.html',{'error':"Your Password must contain Atleast 1 lowercase Letter "})
                     
-            elif not re.findall('[()[\]{}|\\`~!@#$%^&*_\-+=;:\'",<>./?]', request.POST['pass']):   
-                     return render(request,'MainApp/home.html',{'error':"Your Password must contain Atleast 1 Specail character "})     
+            # elif not re.findall('[()[\]{}|\\`~!@#$%^&*_\-+=;:\'",<>./?]', request.POST['pass']):   
+            #          return render(request,'MainApp/home.html',{'error':"Your Password must contain Atleast 1 Special character "})     
 
             else:
                     if extendeduser.objects.filter(email=email):

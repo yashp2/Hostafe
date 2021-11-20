@@ -439,9 +439,11 @@ body {
 
   .flbeimgdiv{
     height: calc(100% - 40px);
-    max-height: 200px;
+    min-width: 200px;
+    /* max-height: 200px; */
     /* flex: 25%; */
     /* overflow: scroll; */
+    display: flex;
     justify-content: center;
     margin: 20px;
 }
@@ -449,8 +451,8 @@ body {
 .flbeimg{
     height: calc(100%);
     max-height: 200px;
-    /* max-width: 100%;
-    object-fit: scale-down; */
+    max-width: 300px;
+    object-fit: scale-down;
 }
 
 .flbecontent{
@@ -633,7 +635,7 @@ body {
     padding-left: 10px;
     font-family: 'Zen Antique', serif;
     font-weight: bold;
-    font-size:50px;
+    font-size:40px;
     text-shadow: 2px 2px 6px black;
     
 
@@ -645,6 +647,7 @@ body {
 .perkse h3{
     font-family: 'Zen Antique', serif;
     padding-left:10px;
+    font-size: 18px;
 
 }
 .yash{
@@ -661,7 +664,7 @@ body {
     font-family: 'Libre Caslon Text', serif;
     font-weight: 200;
     padding-left: 7px;
-    font-size: 18px;
+    font-size: 14px;
 }
 .mainfooter{
 
@@ -726,6 +729,14 @@ body {
         display: flex;
         flex-direction: column;
       }
+
+      .flbeimg{
+        /* height: calc(100%); */
+        /* max-height: 00px; */
+        max-width: 100%;
+        max-height: 400px;
+        object-fit: scale-down;
+    }
 
       .searchboxdiv{
           width: 100%;

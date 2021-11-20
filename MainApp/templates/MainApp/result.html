@@ -111,7 +111,7 @@
         <div class="flbeimgdiv">
           <img
             src="{{r.hostel_img_1.url}}"
-            alt="stanza" class="flbeimg">
+            alt="hostel-image" class="flbeimg">
         </div>
         <div class="flbecontent">
           <div class="flbecontentn">
@@ -189,13 +189,16 @@
                           
                           <div class="input">{{r.address}}</div>
 
-                  
+                          <!-- style="    font-family: 'Crimson Text', serif; font-size: 30px;" -->
                
-                            <div>
-                            <h2 style="    font-family: 'Crimson Text', serif; font-size: 30px;">Location : </h2>
                             
-                            <div class="">{{r.map_link}}</div>
-                            </a></div>
+                            <h2 >Location : </h2>
+                            
+                            <div class="input">
+                              <a href={{r.map_link}}>{{r.map_link}}</a>
+                            </div>
+                            <!-- </a> -->
+                          <!-- </div> -->
                           <h2>Distance from college:</h2>
                           <div class="input">
                             {% if r.radius == 0 %}
