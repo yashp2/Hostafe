@@ -57,6 +57,9 @@ body {
     
 } 
 
+.topbbd2{
+    margin:  10px 20px 10px 10px;
+}
 
 .toggle-button {
     position: absolute;
@@ -141,11 +144,7 @@ body {
     border-radius: 10px;
    
   }
-  @media (max-width : 560px){
-    .searchboxbar{
-      flex-direction: column;
-    }
-  }
+  
 /* @media(max-width:540px){
     .searchboxdiv{
         background-color: red;
@@ -328,7 +327,7 @@ body {
 
 .topbb{
     width: calc(49.5% - 30px);
-    margin: 10px 10px 10px 20px;
+    margin: 10px 10px 10px 10px;
 }
 
 #topbbd1.inactive{
@@ -354,8 +353,8 @@ body {
 
   .flbxl{
     flex: 20%;
-    min-width: 250px;
-    max-width: 80vw;
+    /* min-width: 250px; */
+    /* max-width: 80vw; */
     display: flex;
     flex-direction: column;
     /* background-color: black; */
@@ -439,7 +438,7 @@ body {
 
   .flbeimgdiv{
     height: calc(100% - 40px);
-    min-width: 200px;
+    min-width: 150px;
     /* max-height: 200px; */
     /* flex: 25%; */
     /* overflow: scroll; */
@@ -734,7 +733,7 @@ body {
         /* height: calc(100%); */
         /* max-height: 00px; */
         max-width: 100%;
-        max-height: 400px;
+        max-height: 300px;
         object-fit: scale-down;
     }
 
@@ -758,6 +757,10 @@ body {
     .aboutusr{
         max-width: 100%;
     }
+
+    .flbxl{
+        max-width:100vw;
+    }
 }
 
 @media (max-width: 560px) {
@@ -766,6 +769,10 @@ body {
         align-items: flex-start;
     }
 
+    .searchboxbar{
+      flex-direction: column;
+    }
+      
     .toggle-button {
         display: flex;
     }
@@ -795,7 +802,14 @@ body {
     /* .filterdropdownelements{
         flex-direction: column;
     } */
-
+    .topbb{
+        width: calc(100% - 30px);
+        margin: 10px 20px;
+    }
+    
+    .topbbd2{
+        margin: 10px 20px;
+    }
     .filterdropdownelements{
         flex-direction: column;
         flex-wrap: wrap;
@@ -814,3 +828,17 @@ body {
         flex-direction: column;
     } */
 }
+
+
+/* .blink_me {
+    animation: blinker 2s linear infinite;
+    color:red;
+  }
+  .alertt{
+      text-align: center;
+      background-color: red;
+  }
+  
+  @keyframes blinker {  
+    50% { opacity: 0; }
+  } */

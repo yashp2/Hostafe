@@ -28,6 +28,12 @@
   <img src="{% static 'img/main2.jpeg' %}" alt="img" style="width: 100%; object-fit: contain;">
 </div>
 
+<div style="padding: 20px; margin: 10px;">
+  <marquee width="100%" direction="left" height="50px" >
+    Colleges available : <span class="blink_me"> PICT , PCCOE , CUMMINS...</span>
+    </marquee>
+  </div>
+
 <form action="{% url 'result' %}"  method="POST" id="d">
   {% csrf_token %}
 <div class="searchboxbar">
@@ -113,6 +119,21 @@
 </div>
 </form>
 
+<!-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <strong>Holy guacamole!</strong> You should check in on some of those fields below.
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div> -->
+<!-- <div style="padding: 20px;">
+<marquee width="100%" direction="left" height="50px" >
+  Colleges available : <span class="blink_me"> PICT , PCCOE , CUMMINS...</span>
+  </marquee>
+</div> -->
+
+<!-- <span class="alertt">
+  Colleges available : <span class="blink_me"> PICT , PCCOE , CUMMINS...</span>
+    </span> -->
 <div class="aboutus">
   <div class="aboutusl">
     <img src="{% static 'img/welcome_image.jpg' %}" alt="img"

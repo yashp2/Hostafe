@@ -162,7 +162,7 @@
           </div>
           <div class=" modal-body">
             <div style="display: flex; flex-direction: row;" class="justify-content-center align-items-center">
-              <img src="./admindiv.png" alt="" class="admindiv">
+              <img src="{% static 'img/admindiv.png' %}" alt="" class="admindiv">
               <h2>Sign-Up</h2>
             </div>
             <div class="errors">
@@ -173,12 +173,12 @@
             <form action="{%url 'register' %}" method="POST">
               {% csrf_token%}
               <input type="text" required name="fn" class="formbtns topbb " id="topbbd1" placeholder="First Name">
-              <input type="text" required name="ln" class="formbtns topbb topbbd" placeholder="Last Name"
-                style="margin:  10px 20px 10px 10px;">
-              <input type="email" required name="email" class="formbtns topbbd" placeholder="Email-Id">
+              <input type="text" required name="ln" class="formbtns topbb topbbd2" placeholder="Last Name"
+              >
+              <input type="email" required name="email" class="formbtns topbbd3" placeholder="Email-Id">
               <input type="text" required name="username" class="formbtns" placeholder="Username">
-              <input type="password" name="pass" class="formbtns" placeholder="Password">
-              <input type="password" name="passwordagain" class="formbtns" placeholder=" Confirm Password">
+              <input type="password" required name="pass" class="formbtns" placeholder="Password">
+              <input type="password" required name="passwordagain" class="formbtns" placeholder=" Confirm Password">
           </div>
           <div class="modal-footer">
             <button class="btn btn-light Lgtg" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Already have
@@ -201,7 +201,7 @@
             </div>
             <div class=" modal-body">
               <div style="display: flex; flex-direction: row;" class="justify-content-center align-items-center">
-                <img src="./admindiv.png" alt="" class="admindiv">
+                <img src="{% static 'img/admindiv.png' %}" alt="" class="admindiv">
                 <h2>Login</h2>
               </div>
               <input type="text" name="username" id="username" class="formbtns" placeholder="Username">
@@ -210,8 +210,12 @@
             <div class="modal-footer">
               <!-- <button class="btn btn-light" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to
                 Sign-Up</button> -->
-              <button type="button" value="Login" class="btn btn-primary button"> <input type="submit"
-                  value="Login"></button>
+              <!-- <button type="button" value="Login" class="btn btn-primary button"> -->
+                 <!-- <input type="submit"
+                  value="Login" style="background-color:#0d6efd;    border-color: #0d6efd; "> -->
+                  <input type="submit"
+                  value="Login" class="btn btn-primary button">
+                <!-- </button> -->
             </div>
           </form>
         </div>
